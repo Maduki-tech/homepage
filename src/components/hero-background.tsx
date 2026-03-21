@@ -34,6 +34,9 @@ export function HeroBackground() {
             {/* Horizon glow line */}
             <div className="absolute left-0 right-0 h-px bg-linear-to-r from-transparent via-violet-400/40 to-transparent dark:via-violet-500/60" style={{ top: "50%" }} />
             <div className="absolute left-0 right-0 h-8 bg-linear-to-b from-violet-400/10 to-transparent dark:from-violet-500/15" style={{ top: "50%" }} />
+
+            {/* Dark mode: subtle vignette to clear the center text area */}
+            <div className="absolute inset-0 hidden dark:block" style={{ background: "radial-gradient(ellipse 55% 45% at 50% 42%, rgba(4,4,15,0.55) 0%, transparent 100%)" }} />
         </>
     );
 }
