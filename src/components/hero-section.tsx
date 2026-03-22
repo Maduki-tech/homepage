@@ -10,12 +10,12 @@ const socialLinks = [
 
 export function HeroSection() {
     return (
-        <section className="relative h-full overflow-hidden bg-white dark:bg-[#04040f]">
+        <section className="relative h-full overflow-hidden bg-white dark:bg-page-dark">
             <HeroBackground />
 
             {/* Text content */}
             <div className="relative z-10 flex h-full flex-col items-center justify-center gap-4 text-center">
-                <p className="text-md font-semibold uppercase tracking-[0.35em] text-violet-600 dark:text-violet-400">
+                <p className="text-md font-semibold uppercase tracking-[0.35em] text-brand">
                     Welcome to my portfolio
                 </p>
                 <h1 className="text-6xl font-bold tracking-tight text-gray-900 md:text-7xl dark:text-white dark:[text-shadow:0_2px_40px_rgba(0,0,0,0.8)]">
@@ -24,11 +24,10 @@ export function HeroSection() {
                 <p className="text-lg font-light tracking-wide text-gray-500 md:text-xl dark:text-white/75">
                     Backend Engineer & Software Developer
                 </p>
-                <p className="mt-1 max-w-xs text-md font-normal tracking-wide border-b-2 border-indigo-500 text-gray-400 
-                    md:text-sm dark:text-white/75
-                    ">
+                <p className="mt-1 max-w-xs text-md font-normal tracking-wide border-b-2 border-brand text-gray-400 md:text-sm dark:text-white/75">
                     &ldquo;Building digital experiences that matter&rdquo;
                 </p>
+
             </div>
 
             {/* Social links — pinned to the bottom */}
@@ -40,7 +39,7 @@ export function HeroSection() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={label}
-                        className="text-gray-400 transition-colors hover:text-violet-600 dark:text-white/70 dark:hover:text-indigo-300"
+                        className="text-gray-400 transition-colors hover:text-brand dark:text-white/70 dark:hover:text-brand"
                     >
                         <Icon className="size-8" />
                     </Link>
