@@ -21,40 +21,50 @@ type Job = {
     };
 };
 
+// Newest on top
 const workExperience: Job[] = [
     {
-        title: "Senior Backend Developer",
-        company: "Company Name",
+        title: "Backend Developer IoT",
+        company: "Wacker Neuson SE",
         period: "2023 – Present",
-        description: "Short description of responsibilities and achievements.",
+        description: "Building an IoT platform for construction equipment, enabling real-time monitoring and predictive maintenance.",
         details: {
             responsibilities: [
-                "Responsibility one — describe what you owned or led.",
-                "Responsibility two — e.g. designed and maintained microservices.",
-                "Responsibility three — e.g. mentored junior developers.",
+                "Led the Migration of ofer 150.000 machines.",
+                "Building the process to handle over 20.000 messages per minute.",
+                "Assessed and implemented ISO standards and EU regulations for data security and privacy.",
             ],
-            technologies: ["Go", "PostgreSQL", "Redis", "Docker", "Kubernetes"],
+            technologies: ["Azure", "Azure SQL", "Java", "Python"],
             achievements: [
-                "Achievement one — e.g. reduced API latency by 40%.",
-                "Achievement two — e.g. shipped feature X used by Y users.",
+                "Improved performance of message processing by 70% through optimized data pipelines and efficient resource management.",
+                "Successfully lead the migration of over 150,000 machines to the new IoT platform, ensuring minimal downtime and seamless integration.",
             ],
         },
     },
     {
-        title: "Backend Developer",
-        company: "Company Name",
-        period: "2021 – 2023",
-        description: "Short description of responsibilities and achievements.",
+        title: "Freelance Webdeveloper",
+        company: "David Schlueter",
+        period: "2022 – 2024",
+        description: "Building Homepages and WebApps for small businesses and private customers.",
         details: {
             responsibilities: [
-                "Responsibility one — describe what you owned or led.",
-                "Responsibility two — e.g. built REST APIs for mobile clients.",
-                "Responsibility three — e.g. improved CI/CD pipelines.",
+                "",
             ],
-            technologies: ["Python", "FastAPI", "PostgreSQL", "AWS", "Docker"],
+            technologies: ["Google Cloud", "NextJS", "Prisma", "PostgreSQL", "Vercel", "Docker", "Google APIs"],
             achievements: [
-                "Achievement one — e.g. cut deployment time from 20 min to 3 min.",
-                "Achievement two — e.g. migrated legacy monolith to services.",
+            ],
+        },
+    },
+    {
+        title: "Software Developer",
+        company: "Divcon Consulting GmbH",
+        period: "2019 – 2023",
+        description: "Worked on a Consturction site planning platform, responsible for backend development and infrastructure.",
+        details: {
+            responsibilities: [
+            ],
+            technologies: ["SAPUI5", "JavaScript", "Osapiens HUB", "ABAP", "SAP", "Kotlin"],
+            achievements: [
             ],
         },
     },
@@ -62,9 +72,9 @@ const workExperience: Job[] = [
 
 const education = [
     {
-        degree: "B.Sc. Computer Science",
-        institution: "University Name",
-        period: "2017 – 2021",
+        degree: "IT specialist training",
+        institution: "Berfuliche-Schulen-Bretten",
+        period: "2019 - 2022",
     },
 ];
 
