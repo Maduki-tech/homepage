@@ -1,17 +1,62 @@
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+"use client";
 
-const workExperience = [
+import { useState } from "react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "~/components/ui/dialog";
+
+type Job = {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  details: {
+    responsibilities: string[];
+    technologies: string[];
+    achievements: string[];
+  };
+};
+
+const workExperience: Job[] = [
   {
     title: "Senior Backend Developer",
     company: "Company Name",
     period: "2023 – Present",
     description: "Short description of responsibilities and achievements.",
+    details: {
+      responsibilities: [
+        "Responsibility one — describe what you owned or led.",
+        "Responsibility two — e.g. designed and maintained microservices.",
+        "Responsibility three — e.g. mentored junior developers.",
+      ],
+      technologies: ["Go", "PostgreSQL", "Redis", "Docker", "Kubernetes"],
+      achievements: [
+        "Achievement one — e.g. reduced API latency by 40%.",
+        "Achievement two — e.g. shipped feature X used by Y users.",
+      ],
+    },
   },
   {
     title: "Backend Developer",
     company: "Company Name",
     period: "2021 – 2023",
     description: "Short description of responsibilities and achievements.",
+    details: {
+      responsibilities: [
+        "Responsibility one — describe what you owned or led.",
+        "Responsibility two — e.g. built REST APIs for mobile clients.",
+        "Responsibility three — e.g. improved CI/CD pipelines.",
+      ],
+      technologies: ["Python", "FastAPI", "PostgreSQL", "AWS", "Docker"],
+      achievements: [
+        "Achievement one — e.g. cut deployment time from 20 min to 3 min.",
+        "Achievement two — e.g. migrated legacy monolith to services.",
+      ],
+    },
   },
 ];
 
@@ -56,6 +101,8 @@ const hobbies = [
 ];
 
 export default function AboutPage() {
+  const [selected, setSelected] = useState<Job | null>(null);
+
   return (
     <main className="relative h-full overflow-hidden bg-white dark:bg-page-dark">
 
@@ -101,26 +148,34 @@ export default function AboutPage() {
         {/* ── Main two-column layout ──────────────────────────────── */}
         <div className="grid min-h-0 flex-1 grid-cols-5 gap-4">
 
-          {/* ── Left: Work Experience (wider) ──────────────────────── */}
+          {/* ── Left: Work Experience ──────────────────────────────── */}
           <div className="col-span-3 flex flex-col gap-3 overflow-hidden rounded-2xl border border-brand/20 bg-brand/5 p-6 dark:bg-brand/10">
             <h2 className="text-xs font-semibold uppercase tracking-widest text-brand">Work Experience</h2>
             <div className="flex flex-col gap-3">
               {workExperience.map((job) => (
-                <div key={job.title + job.company}
-                  className="rounded-xl border border-brand/15 bg-white/70 p-5 dark:bg-white/5">
+                <button
+                  key={job.title + job.company}
+                  onClick={() => setSelected(job)}
+                  className="group w-full cursor-pointer rounded-xl border border-brand/15 bg-white/70 p-5 text-left transition-all hover:border-brand/40 hover:bg-brand/5 hover:shadow-md dark:bg-white/5 dark:hover:bg-brand/15"
+                >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <div className="font-semibold text-gray-900 dark:text-white">{job.title}</div>
+                      <div className="font-semibold text-gray-900 transition-colors group-hover:text-brand dark:text-white">{job.title}</div>
                       <div className="mt-0.5 text-sm font-medium text-brand">{job.company}</div>
                     </div>
-                    <span className="shrink-0 rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand dark:bg-brand/20">
-                      {job.period}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="shrink-0 rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand dark:bg-brand/20">
+                        {job.period}
+                      </span>
+                      <span className="text-xs text-gray-400 opacity-0 transition-opacity group-hover:opacity-100 dark:text-white/40">
+                        View details →
+                      </span>
+                    </div>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-gray-500 dark:text-white/55">
                     {job.description}
                   </p>
-                </div>
+                </button>
               ))}
             </div>
 
@@ -140,7 +195,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* ── Right: Bio + Education + Skills + Hobbies ─────────── */}
+          {/* ── Right: Education + Skills + Hobbies ───────────────── */}
           <div className="col-span-2 flex flex-col gap-3 overflow-hidden">
 
             {/* Education */}
@@ -204,6 +259,67 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      {/* ── Job detail dialog ────────────────────────────────────── */}
+      <Dialog open={!!selected} onOpenChange={(open) => !open && setSelected(null)}>
+        <DialogContent className="max-w-lg">
+          {selected && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-lg">{selected.title}</DialogTitle>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium text-brand">{selected.company}</span>
+                  <span className="rounded-full bg-brand/10 px-3 py-0.5 text-xs font-medium text-brand dark:bg-brand/20">
+                    {selected.period}
+                  </span>
+                </div>
+              </DialogHeader>
+
+              <div className="mt-2 flex flex-col gap-5">
+                {/* Responsibilities */}
+                <div>
+                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand">Responsibilities</h3>
+                  <ul className="flex flex-col gap-1.5">
+                    {selected.details.responsibilities.map((r) => (
+                      <li key={r} className="flex gap-2 text-sm text-gray-600 dark:text-white/70">
+                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" />
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Achievements */}
+                <div>
+                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand">Achievements</h3>
+                  <ul className="flex flex-col gap-1.5">
+                    {selected.details.achievements.map((a) => (
+                      <li key={a} className="flex gap-2 text-sm text-gray-600 dark:text-white/70">
+                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" />
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Technologies */}
+                <div>
+                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-widest text-brand">Technologies</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selected.details.technologies.map((tech) => (
+                      <span key={tech}
+                        className="rounded-full bg-brand/12 px-2.5 py-0.5 text-xs font-medium text-brand dark:bg-brand/22">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+
     </main>
   );
 }
