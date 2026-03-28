@@ -183,11 +183,11 @@ export default function AboutPage() {
                     <div className="flex items-center justify-between md:flex-col md:items-end md:gap-2">
                         <div className="flex items-center gap-1.5 text-sm text-gray-400 dark:text-white/40">
                             <MapPin className="size-4" />
-                            <span>City, Country</span>
+                            <span>Karlsruhe, Germany</span>
                         </div>
                         <div className="flex items-center gap-3">
                             <a
-                                href="https://github.com/yourusername"
+                                href="https://github.com/Maduki-tech"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-brand dark:hover:text-brand text-gray-400 transition-colors dark:text-white/40"
@@ -195,7 +195,7 @@ export default function AboutPage() {
                                 <Github className="size-5" />
                             </a>
                             <a
-                                href="https://linkedin.com/in/yourusername"
+                                href="https://www.linkedin.com/in/david-schlueter98/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="hover:text-brand dark:hover:text-brand text-gray-400 transition-colors dark:text-white/40"
@@ -203,7 +203,7 @@ export default function AboutPage() {
                                 <Linkedin className="size-5" />
                             </a>
                             <a
-                                href="mailto:your@email.com"
+                                href="mailto:d.schlueter1011@gmail.com"
                                 className="hover:text-brand dark:hover:text-brand text-gray-400 transition-colors dark:text-white/40"
                             >
                                 <Mail className="size-5" />
