@@ -9,139 +9,138 @@ import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
 const navLinks = [
-  { href: "/blog", label: "Blog" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About Me" },
-  { href: "/contact", label: "Contact" },
+    { href: "/blog", label: "Blog" },
+    { href: "/projects", label: "Projects" },
+    { href: "/about", label: "About Me" },
 ];
 
 function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+    useEffect(() => setMounted(true), []);
 
-  if (!mounted) return <div className="size-9" />;
+    if (!mounted) return <div className="size-9" />;
 
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      aria-label="Toggle theme"
-    >
-      {theme === "dark" ? (
-        <Sun className="size-5" />
-      ) : (
-        <Moon className="size-5" />
-      )}
-    </Button>
-  );
+    return (
+        <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+        >
+            {theme === "dark" ? (
+                <Sun className="size-5" />
+            ) : (
+                <Moon className="size-5" />
+            )}
+        </Button>
+    );
 }
 
 export function Navbar() {
-  const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
+    const pathname = usePathname();
+    const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Close mobile menu on route change
-  useEffect(() => setMobileOpen(false), [pathname]);
+    // Close mobile menu on route change
+    useEffect(() => setMobileOpen(false), [pathname]);
 
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileOpen]);
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        document.body.style.overflow = mobileOpen ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [mobileOpen]);
 
-  return (
-    <header className="border-border bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-7xl items-center px-6 py-4">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="text-foreground hover:text-brand shrink-0 text-lg font-semibold transition-colors"
-        >
-          Portfolio
-        </Link>
+    return (
+        <header className="border-border bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur-sm">
+            <nav className="mx-auto flex max-w-7xl items-center px-6 py-4">
+                {/* Logo */}
+                <Link
+                    href="/"
+                    className="text-foreground hover:text-brand shrink-0 text-lg font-semibold transition-colors"
+                >
+                    Portfolio
+                </Link>
 
-        {/* Desktop links — centered */}
-        <div className="hidden flex-1 items-center justify-center gap-2 md:flex">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.href}
-              href={link.href}
-              active={pathname === link.href}
-            >
-              {link.label}
-            </NavLink>
-          ))}
-        </div>
+                {/* Desktop links — centered */}
+                <div className="hidden flex-1 items-center justify-center gap-2 md:flex">
+                    {navLinks.map((link) => (
+                        <NavLink
+                            key={link.href}
+                            href={link.href}
+                            active={pathname === link.href}
+                        >
+                            {link.label}
+                        </NavLink>
+                    ))}
+                </div>
 
-        {/* Right side: theme toggle + hamburger */}
-        <div className="ml-auto flex items-center gap-1">
-          <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? (
-              <X className="size-5" />
-            ) : (
-              <Menu className="size-5" />
+                {/* Right side: theme toggle + hamburger */}
+                <div className="ml-auto flex items-center gap-1">
+                    <ThemeToggle />
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="md:hidden"
+                        onClick={() => setMobileOpen((v) => !v)}
+                        aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                    >
+                        {mobileOpen ? (
+                            <X className="size-5" />
+                        ) : (
+                            <Menu className="size-5" />
+                        )}
+                    </Button>
+                </div>
+            </nav>
+
+            {/* Mobile menu */}
+            {mobileOpen && (
+                <div className="border-border bg-background/95 border-t backdrop-blur-sm md:hidden">
+                    <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={cn(
+                                    "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                                    pathname === link.href
+                                        ? "bg-brand/10 text-brand"
+                                        : "text-muted-foreground hover:bg-accent hover:text-foreground",
+                                )}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
             )}
-          </Button>
-        </div>
-      </nav>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="border-border bg-background/95 border-t backdrop-blur-sm md:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                  pathname === link.href
-                    ? "bg-brand/10 text-brand"
-                    : "text-muted-foreground hover:bg-accent hover:text-foreground",
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </header>
-  );
+        </header>
+    );
 }
 
 function NavLink({
-  href,
-  children,
-  active,
+    href,
+    children,
+    active,
 }: {
-  href: string;
-  children: React.ReactNode;
-  active: boolean;
+    href: string;
+    children: React.ReactNode;
+    active: boolean;
 }) {
-  return (
-    <Link
-      href={href}
-      className={cn(
-        "rounded-md px-3 py-2 text-sm font-light transition-colors",
-        active
-          ? "bg-brand/10 text-brand"
-          : "hover:bg-accent hover:text-foreground",
-      )}
-    >
-      {children}
-    </Link>
-  );
+    return (
+        <Link
+            href={href}
+            className={cn(
+                "rounded-md px-3 py-2 text-sm font-light transition-colors",
+                active
+                    ? "bg-brand/10 text-brand"
+                    : "hover:bg-accent hover:text-foreground",
+            )}
+        >
+            {children}
+        </Link>
+    );
 }

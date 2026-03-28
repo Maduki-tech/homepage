@@ -176,9 +176,10 @@ export default function AboutPage() {
                         </div>
                     </div>
                     <p className="md:border-brand/20 flex-1 text-sm leading-relaxed text-gray-500 md:mx-6 md:border-l md:pl-6 dark:text-white/55">
-                        Passionate backend developer with a love for performance engineering
-                        and Neovim. Currently exploring Micro SaaS — building small, focused
-                        products that solve real problems.
+                        Passionate backend developer with a love for performance
+                        engineering and Neovim. Currently exploring Micro SaaS —
+                        building small, focused products that solve real
+                        problems.
                     </p>
                     <div className="flex items-center justify-between md:flex-col md:items-end md:gap-2">
                         <div className="flex items-center gap-1.5 text-sm text-gray-400 dark:text-white/40">
@@ -308,36 +309,38 @@ export default function AboutPage() {
                                 Skills
                             </h2>
                             <div className="flex flex-col gap-2.5">
-                                {Object.entries(skills).map(([category, items]) => (
-                                    <div
-                                        key={category}
-                                        className="flex flex-wrap items-center gap-2"
-                                    >
-                                        <span className="w-20 shrink-0 text-xs text-gray-400 dark:text-white/40">
-                                            {category}
-                                        </span>
-                                        {items.map((skill) =>
-                                            skill.href ? (
-                                                <a
-                                                    key={skill.name}
-                                                    href={skill.href}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="bg-brand/12 text-brand hover:bg-brand dark:bg-brand/22 dark:hover:bg-brand rounded-full px-2.5 py-0.5 text-xs font-medium transition-all hover:text-white hover:shadow-sm dark:hover:text-white"
-                                                >
-                                                    {skill.name}
-                                                </a>
-                                            ) : (
-                                                <span
-                                                    key={skill.name}
-                                                    className="bg-brand/12 text-brand dark:bg-brand/22 rounded-full px-2.5 py-0.5 text-xs font-medium"
-                                                >
-                                                    {skill.name}
-                                                </span>
-                                            ),
-                                        )}
-                                    </div>
-                                ))}
+                                {Object.entries(skills).map(
+                                    ([category, items]) => (
+                                        <div
+                                            key={category}
+                                            className="flex flex-wrap items-center gap-2"
+                                        >
+                                            <span className="w-20 shrink-0 text-xs text-gray-400 dark:text-white/40">
+                                                {category}
+                                            </span>
+                                            {items.map((skill) =>
+                                                skill.href ? (
+                                                    <a
+                                                        key={skill.name}
+                                                        href={skill.href}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="bg-brand/12 text-brand hover:bg-brand dark:bg-brand/22 dark:hover:bg-brand rounded-full px-2.5 py-0.5 text-xs font-medium transition-all hover:text-white hover:shadow-sm dark:hover:text-white"
+                                                    >
+                                                        {skill.name}
+                                                    </a>
+                                                ) : (
+                                                    <span
+                                                        key={skill.name}
+                                                        className="bg-brand/12 text-brand dark:bg-brand/22 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                                                    >
+                                                        {skill.name}
+                                                    </span>
+                                                ),
+                                            )}
+                                        </div>
+                                    ),
+                                )}
                             </div>
                         </div>
 
@@ -376,7 +379,9 @@ export default function AboutPage() {
                         <>
                             {/* Sticky header */}
                             <DialogHeader className="border-brand/15 shrink-0 border-b px-5 py-4">
-                                <DialogTitle className="text-lg">{selected.title}</DialogTitle>
+                                <DialogTitle className="text-lg">
+                                    {selected.title}
+                                </DialogTitle>
                                 <div className="flex items-center justify-between">
                                     <span className="text-brand text-sm font-medium">
                                         {selected.company}
@@ -396,15 +401,17 @@ export default function AboutPage() {
                                             Responsibilities
                                         </h3>
                                         <ul className="flex flex-col gap-1.5">
-                                            {selected.details.responsibilities.map((r) => (
-                                                <li
-                                                    key={r}
-                                                    className="flex gap-2 text-sm text-gray-600 dark:text-white/70"
-                                                >
-                                                    <span className="bg-brand mt-1.5 size-1.5 shrink-0 rounded-full" />
-                                                    {r}
-                                                </li>
-                                            ))}
+                                            {selected.details.responsibilities.map(
+                                                (r) => (
+                                                    <li
+                                                        key={r}
+                                                        className="flex gap-2 text-sm text-gray-600 dark:text-white/70"
+                                                    >
+                                                        <span className="bg-brand mt-1.5 size-1.5 shrink-0 rounded-full" />
+                                                        {r}
+                                                    </li>
+                                                ),
+                                            )}
                                         </ul>
                                     </div>
 
@@ -414,15 +421,17 @@ export default function AboutPage() {
                                             Achievements
                                         </h3>
                                         <ul className="flex flex-col gap-1.5">
-                                            {selected.details.achievements.map((a) => (
-                                                <li
-                                                    key={a}
-                                                    className="flex gap-2 text-sm text-gray-600 dark:text-white/70"
-                                                >
-                                                    <span className="bg-brand mt-1.5 size-1.5 shrink-0 rounded-full" />
-                                                    {a}
-                                                </li>
-                                            ))}
+                                            {selected.details.achievements.map(
+                                                (a) => (
+                                                    <li
+                                                        key={a}
+                                                        className="flex gap-2 text-sm text-gray-600 dark:text-white/70"
+                                                    >
+                                                        <span className="bg-brand mt-1.5 size-1.5 shrink-0 rounded-full" />
+                                                        {a}
+                                                    </li>
+                                                ),
+                                            )}
                                         </ul>
                                     </div>
 
@@ -432,14 +441,16 @@ export default function AboutPage() {
                                             Technologies
                                         </h3>
                                         <div className="flex flex-wrap gap-2">
-                                            {selected.details.technologies.map((tech) => (
-                                                <span
-                                                    key={tech}
-                                                    className="bg-brand/12 text-brand dark:bg-brand/22 rounded-full px-2.5 py-0.5 text-xs font-medium"
-                                                >
-                                                    {tech}
-                                                </span>
-                                            ))}
+                                            {selected.details.technologies.map(
+                                                (tech) => (
+                                                    <span
+                                                        key={tech}
+                                                        className="bg-brand/12 text-brand dark:bg-brand/22 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ),
+                                            )}
                                         </div>
                                     </div>
                                 </div>
