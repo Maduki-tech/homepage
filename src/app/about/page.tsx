@@ -157,15 +157,11 @@ export default function AboutPage() {
 
     return (
         <main className="dark:bg-page-dark relative min-h-full overflow-y-auto bg-white md:h-full md:overflow-hidden">
-            {/* Background glows */}
-            <div className="bg-brand/10 dark:bg-brand/15 absolute top-0 left-1/4 h-[500px] w-[500px] rounded-full blur-3xl" />
-            <div className="bg-brand/10 dark:bg-brand/10 absolute right-1/3 bottom-0 h-72 w-72 rounded-full blur-3xl" />
-
             <div className="relative z-10 flex flex-col gap-4 px-4 py-6 md:h-full md:px-8">
                 {/* ── Hero strip ─────────────────────────────────────────── */}
-                <div className="border-brand/20 bg-brand/5 dark:bg-brand/10 flex flex-col gap-3 rounded-2xl border px-6 py-4 md:flex-row md:items-center md:gap-6">
+                <div className="flex flex-col gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-6 py-4 md:flex-row md:items-center md:gap-6 dark:border-white/10 dark:bg-white/5">
                     <div className="flex items-center gap-4">
-                        <div className="bg-brand/25 ring-brand/50 dark:bg-brand/35 size-14 shrink-0 rounded-full ring-2" />
+                        <div className="size-14 shrink-0 rounded-full bg-gray-200 ring-2 ring-gray-300 dark:bg-white/15 dark:ring-white/20" />
                         <div>
                             <h1 className="text-xl font-bold text-gray-900 dark:text-white">
                                 Your Name
@@ -175,7 +171,7 @@ export default function AboutPage() {
                             </p>
                         </div>
                     </div>
-                    <p className="md:border-brand/20 flex-1 text-sm leading-relaxed text-gray-500 md:mx-6 md:border-l md:pl-6 dark:text-white/55">
+                    <p className="flex-1 text-sm leading-relaxed text-gray-500 md:mx-6 md:border-l md:border-gray-200 md:pl-6 dark:text-white/55 dark:md:border-white/10">
                         Passionate backend developer with a love for performance
                         engineering and Neovim. Currently exploring Micro SaaS —
                         building small, focused products that solve real
@@ -216,7 +212,7 @@ export default function AboutPage() {
                 {/* ── Main two-column layout ──────────────────────────────── */}
                 <div className="grid grid-cols-1 gap-4 md:min-h-0 md:flex-1 md:grid-cols-5">
                     {/* ── Left: Work Experience ──────────────────────────────── */}
-                    <div className="border-brand/20 bg-brand/5 dark:bg-brand/10 col-span-1 flex flex-col gap-3 overflow-hidden rounded-2xl border p-6 md:col-span-3">
+                    <div className="col-span-1 flex flex-col gap-3 overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-6 md:col-span-3 dark:border-white/10 dark:bg-white/5">
                         <h2 className="text-brand text-xs font-semibold tracking-widest uppercase">
                             Work Experience
                         </h2>
@@ -225,7 +221,7 @@ export default function AboutPage() {
                                 <button
                                     key={job.title + job.company}
                                     onClick={() => setSelected(job)}
-                                    className="group border-brand/15 hover:border-brand/40 hover:bg-brand/5 dark:hover:bg-brand/15 w-full cursor-pointer rounded-xl border bg-white/70 p-5 text-left transition-all hover:shadow-md dark:bg-white/5"
+                                    className="group w-full cursor-pointer rounded-xl border border-gray-200 bg-white/80 p-5 text-left transition-all hover:border-gray-300 hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20"
                                 >
                                     <div className="flex items-start justify-between gap-4">
                                         <div>
@@ -237,7 +233,7 @@ export default function AboutPage() {
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="bg-brand/10 text-brand dark:bg-brand/20 shrink-0 rounded-full px-3 py-1 text-xs font-medium">
+                                            <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-500 dark:bg-white/10 dark:text-white/50">
                                                 {job.period}
                                             </span>
                                             <span className="text-xs text-gray-400 opacity-0 transition-opacity group-hover:opacity-100 dark:text-white/40">
@@ -261,9 +257,9 @@ export default function AboutPage() {
                             ].map((stat) => (
                                 <div
                                     key={stat.label}
-                                    className="border-brand/15 rounded-xl border bg-white/70 px-4 py-3 text-center dark:bg-white/5"
+                                    className="rounded-xl border border-gray-200 bg-white/80 px-4 py-3 text-center dark:border-white/10 dark:bg-white/5"
                                 >
-                                    <div className="text-brand text-2xl font-bold">
+                                    <div className="text-2xl font-bold text-gray-900 dark:text-white">
                                         {stat.value}
                                     </div>
                                     <div className="mt-0.5 text-xs text-gray-500 dark:text-white/40">
@@ -277,25 +273,25 @@ export default function AboutPage() {
                     {/* ── Right: Education + Skills + Hobbies ───────────────── */}
                     <div className="col-span-1 flex flex-col gap-3 overflow-hidden md:col-span-2">
                         {/* Education */}
-                        <div className="border-brand/20 bg-brand/5 dark:bg-brand/10 rounded-2xl border px-5 py-4">
+                        <div className="rounded-2xl border border-gray-200 bg-gray-50 px-5 py-4 dark:border-white/10 dark:bg-white/5">
                             <h2 className="text-brand mb-3 text-xs font-semibold tracking-widest uppercase">
                                 Education
                             </h2>
                             {education.map((edu) => (
                                 <div
                                     key={edu.degree}
-                                    className="border-brand/15 rounded-xl border bg-white/70 px-4 py-3 dark:bg-white/5"
+                                    className="rounded-xl border border-gray-200 bg-white/80 px-4 py-3 dark:border-white/10 dark:bg-white/5"
                                 >
                                     <div className="flex items-start justify-between gap-3">
                                         <div>
                                             <div className="font-medium text-gray-900 dark:text-white">
                                                 {edu.degree}
                                             </div>
-                                            <div className="text-brand mt-0.5 text-sm">
+                                            <div className="mt-0.5 text-sm text-gray-500 dark:text-white/50">
                                                 {edu.institution}
                                             </div>
                                         </div>
-                                        <span className="bg-brand/10 text-brand dark:bg-brand/20 shrink-0 rounded-full px-3 py-1 text-xs font-medium">
+                                        <span className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-500 dark:bg-white/10 dark:text-white/50">
                                             {edu.period}
                                         </span>
                                     </div>
@@ -304,7 +300,7 @@ export default function AboutPage() {
                         </div>
 
                         {/* Skills */}
-                        <div className="border-brand/20 bg-brand/5 dark:bg-brand/10 rounded-2xl border px-5 py-4">
+                        <div className="rounded-2xl border border-gray-200 bg-gray-50 px-5 py-4 dark:border-white/10 dark:bg-white/5">
                             <h2 className="text-brand mb-3 text-xs font-semibold tracking-widest uppercase">
                                 Skills
                             </h2>
@@ -325,14 +321,14 @@ export default function AboutPage() {
                                                         href={skill.href}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="bg-brand/12 text-brand hover:bg-brand dark:bg-brand/22 dark:hover:bg-brand rounded-full px-2.5 py-0.5 text-xs font-medium transition-all hover:text-white hover:shadow-sm dark:hover:text-white"
+                                                        className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600 transition-all hover:bg-gray-200 dark:bg-white/10 dark:text-white/60 dark:hover:bg-white/15"
                                                     >
                                                         {skill.name}
                                                     </a>
                                                 ) : (
                                                     <span
                                                         key={skill.name}
-                                                        className="bg-brand/12 text-brand dark:bg-brand/22 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                                                        className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600 dark:bg-white/10 dark:text-white/60"
                                                     >
                                                         {skill.name}
                                                     </span>
@@ -345,7 +341,7 @@ export default function AboutPage() {
                         </div>
 
                         {/* Hobbies */}
-                        <div className="border-brand/20 bg-brand/5 dark:bg-brand/10 flex-1 rounded-2xl border px-5 py-4">
+                        <div className="flex-1 rounded-2xl border border-gray-200 bg-gray-50 px-5 py-4 dark:border-white/10 dark:bg-white/5">
                             <h2 className="text-brand mb-3 text-xs font-semibold tracking-widest uppercase">
                                 Interests
                             </h2>
@@ -353,7 +349,7 @@ export default function AboutPage() {
                                 {hobbies.map((hobby) => (
                                     <div
                                         key={hobby.name}
-                                        className="border-brand/15 rounded-xl border bg-white/70 px-3 py-2.5 dark:bg-white/5"
+                                        className="rounded-xl border border-gray-200 bg-white/80 px-3 py-2.5 dark:border-white/10 dark:bg-white/5"
                                     >
                                         <div className="text-sm font-medium text-gray-800 dark:text-white">
                                             {hobby.name}
@@ -378,7 +374,7 @@ export default function AboutPage() {
                     {selected && (
                         <>
                             {/* Sticky header */}
-                            <DialogHeader className="border-brand/15 shrink-0 border-b px-5 py-4">
+                            <DialogHeader className="shrink-0 border-b border-gray-200 px-5 py-4 dark:border-white/10">
                                 <DialogTitle className="text-lg">
                                     {selected.title}
                                 </DialogTitle>
@@ -386,7 +382,7 @@ export default function AboutPage() {
                                     <span className="text-brand text-sm font-medium">
                                         {selected.company}
                                     </span>
-                                    <span className="bg-brand/10 text-brand dark:bg-brand/20 rounded-full px-3 py-0.5 text-xs font-medium">
+                                    <span className="rounded-full bg-gray-100 px-3 py-0.5 text-xs font-medium text-gray-500 dark:bg-white/10 dark:text-white/50">
                                         {selected.period}
                                     </span>
                                 </div>
@@ -407,7 +403,7 @@ export default function AboutPage() {
                                                         key={r}
                                                         className="flex gap-2 text-sm text-gray-600 dark:text-white/70"
                                                     >
-                                                        <span className="bg-brand mt-1.5 size-1.5 shrink-0 rounded-full" />
+                                                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-white/40" />
                                                         {r}
                                                     </li>
                                                 ),
@@ -427,7 +423,7 @@ export default function AboutPage() {
                                                         key={a}
                                                         className="flex gap-2 text-sm text-gray-600 dark:text-white/70"
                                                     >
-                                                        <span className="bg-brand mt-1.5 size-1.5 shrink-0 rounded-full" />
+                                                        <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-gray-400 dark:bg-white/40" />
                                                         {a}
                                                     </li>
                                                 ),
@@ -445,7 +441,7 @@ export default function AboutPage() {
                                                 (tech) => (
                                                     <span
                                                         key={tech}
-                                                        className="bg-brand/12 text-brand dark:bg-brand/22 rounded-full px-2.5 py-0.5 text-xs font-medium"
+                                                        className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600 dark:bg-white/10 dark:text-white/60"
                                                     >
                                                         {tech}
                                                     </span>

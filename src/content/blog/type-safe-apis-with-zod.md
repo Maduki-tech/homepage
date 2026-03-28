@@ -38,7 +38,7 @@ You write the schema once. The type follows for free.
 
 ## Validating API Responses
 
-```typescript
+```ts
 async function getUser(id: string): Promise<User> {
   const response = await fetch(`/api/users/${id}`);
   const raw = await response.json();

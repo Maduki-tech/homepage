@@ -8,22 +8,18 @@ export default function BlogPage() {
 
     return (
         <main className="dark:bg-page-dark relative min-h-full overflow-y-auto bg-white md:h-full md:overflow-hidden">
-            {/* Background glows */}
-            <div className="bg-brand/10 dark:bg-brand/15 absolute top-0 right-1/4 h-[400px] w-[400px] rounded-full blur-3xl" />
-            <div className="bg-brand/8 dark:bg-brand/10 absolute bottom-0 left-1/3 h-72 w-72 rounded-full blur-3xl" />
-
             <div className="relative z-10 flex flex-col gap-4 px-4 py-6 md:h-full md:px-8">
                 {/* Header strip */}
-                <div className="border-brand/20 bg-brand/5 dark:bg-brand/10 flex items-center justify-between rounded-2xl border px-6 py-4">
+                <div className="flex items-center justify-between rounded-2xl border border-gray-200 bg-gray-50 px-6 py-4 dark:border-white/10 dark:bg-white/5">
                     <div>
                         <h1 className="text-xl font-bold text-gray-900 dark:text-white">
                             Writing
                         </h1>
-                        <p className="text-brand text-sm">
+                        <p className="text-sm text-gray-500 dark:text-white/50">
                             Thoughts on backend, tooling, and the craft of building software
                         </p>
                     </div>
-                    <span className="bg-brand/10 text-brand dark:bg-brand/20 rounded-full px-3 py-1 text-xs font-medium">
+                    <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-500 dark:bg-white/10 dark:text-white/50">
                         {posts.length} posts
                     </span>
                 </div>
@@ -34,10 +30,10 @@ export default function BlogPage() {
                         <Link
                             key={post.slug}
                             href={`/blog/${post.slug}`}
-                            className="group border-brand/20 bg-brand/5 dark:bg-brand/10 hover:border-brand/40 dark:hover:bg-brand/15 flex flex-col overflow-hidden rounded-2xl border transition-all hover:shadow-lg"
+                            className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 transition-all hover:border-gray-300 hover:shadow-lg dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20"
                         >
                             {/* Image */}
-                            <div className="bg-brand/10 dark:bg-brand/20 relative h-40 w-full overflow-hidden">
+                            <div className="relative h-40 w-full overflow-hidden bg-gray-100 dark:bg-white/10">
                                 {post.image ? (
                                     <Image
                                         src={post.image}
@@ -47,7 +43,7 @@ export default function BlogPage() {
                                         sizes="(max-width: 768px) 100vw, 33vw"
                                     />
                                 ) : (
-                                    <div className="bg-brand/20 h-full w-full" />
+                                    <div className="h-full w-full bg-gray-200 dark:bg-white/10" />
                                 )}
                                 {/* Tag overlay */}
                                 <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">

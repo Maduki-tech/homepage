@@ -1,8 +1,11 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import remarkHtml from "remark-html";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeStringify from "rehype-stringify";
 
 export type PostMeta = {
   slug: string;
@@ -47,7 +50,15 @@ export async function getPost(slug: string): Promise<Post | null> {
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
 
-  const processed = await remark().use(remarkHtml).process(content);
+  const processed = await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypePrettyCode, {
+      theme: { dark: "github-dark-dimmed", light: "github-light" },
+      keepBackground: false,
+    })
+    .use(rehypeStringify)
+    .process(content);
 
   return {
     slug,

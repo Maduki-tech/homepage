@@ -153,3 +153,68 @@
     @apply font-sans;
   }
 }
+
+/* ── rehype-pretty-code styles ─────────────────────────────── */
+[data-rehype-pretty-code-figure] {
+  margin: 1.25rem 0;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid oklch(0.922 0 0);
+  padding: 1rem 1.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.dark [data-rehype-pretty-code-figure] pre {
+  border-color: oklch(1 0 0 / 10%);
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  padding: 0 0.25rem;
+}
+
+/* Prevent prose from overriding Shiki token colors */
+.prose [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-light);
+}
+.dark .prose [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-dark);
+}
+
+/* Inline code (not inside a pre) */
+:not(pre) > code {
+  border-radius: 0.3rem;
+  background: oklch(0.97 0 0);
+  padding: 0.1em 0.35em;
+  font-size: 0.85em;
+  color: oklch(0.62 var(--brand-chroma) var(--brand-hue));
+}
+
+.dark :not(pre) > code {
+  background: oklch(1 0 0 / 8%);
+  color: oklch(0.75 var(--brand-chroma) var(--brand-hue));
+}
+
+/* Code block title (```ts filename="foo.ts") */
+[data-rehype-pretty-code-title] {
+  border-radius: 0.75rem 0.75rem 0 0;
+  border: 1px solid oklch(0.922 0 0);
+  border-bottom: none;
+  padding: 0.4rem 1.25rem;
+  font-size: 0.75rem;
+  color: oklch(0.556 0 0);
+  font-family: ui-monospace, monospace;
+}
+
+.dark [data-rehype-pretty-code-title] {
+  border-color: oklch(1 0 0 / 10%);
+  color: oklch(0.708 0 0);
+}
+
+[data-rehype-pretty-code-title] + pre {
+  border-radius: 0 0 0.75rem 0.75rem;
+  margin-top: 0;
+}
