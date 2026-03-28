@@ -24,9 +24,7 @@ export default function RootLayout({
       <body className="flex h-dvh flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
-          <div className="flex-1 overflow-auto">
-            {children}
-          </div>
+          <div className="flex-1 overflow-auto">{children}</div>
         </ThemeProvider>
       </body>
     </html>
