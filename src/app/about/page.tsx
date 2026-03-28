@@ -48,10 +48,14 @@ const workExperience: Job[] = [
         description: "Building Homepages and WebApps for small businesses and private customers.",
         details: {
             responsibilities: [
-                "",
+                "Building and designing the Projects from scratch.",
+                "Responsible for the whole stack, from the database to the frontend.",
+                "Deploying and maintaining the projects on Vercel and Google Cloud.",
             ],
             technologies: ["Google Cloud", "NextJS", "Prisma", "PostgreSQL", "Vercel", "Docker", "Google APIs"],
             achievements: [
+                "Successfully launched multiple websites and web applications for small businesses, resulting in increased online presence and customer engagement.",
+                "Implemented efficient deployment pipelines using Vercel and Google Cloud, reducing deployment time by 50% and ensuring high availability.",
             ],
         },
     },
@@ -62,9 +66,14 @@ const workExperience: Job[] = [
         description: "Worked on a Consturction site planning platform, responsible for backend development and infrastructure.",
         details: {
             responsibilities: [
+                "Building UI Components with SAPUI5.",
+                "Implementing REST APIs and integrating with SAP backend systems.",
+                "Building Mobile App Clone from existing SAPUI5 WebApp with Kotlin Multiplatform.",
             ],
             technologies: ["SAPUI5", "JavaScript", "Osapiens HUB", "ABAP", "SAP", "Kotlin"],
             achievements: [
+                "MVP of a mobile app clone of an existing SAPUI5 web application using Kotlin Multiplatform, enabling cross-platform access and improving user experience.",
+                "Learned and implemented SAPUI5 for frontend development, successfully integrating with SAP backend systems and delivering a seamless user experience.",
             ],
         },
     },
@@ -80,8 +89,8 @@ const education = [
 
 const skills: Record<string, { name: string; href?: string }[]> = {
     Languages: [
+        { name: "Java", href: "https://www.java.com" },
         { name: "Go", href: "https://go.dev" },
-        { name: "Rust", href: "https://www.rust-lang.org" },
         { name: "TypeScript", href: "https://www.typescriptlang.org" },
         { name: "Python", href: "https://www.python.org" },
     ],
@@ -89,17 +98,20 @@ const skills: Record<string, { name: string; href?: string }[]> = {
         { name: "PostgreSQL", href: "https://www.postgresql.org" },
         { name: "Redis", href: "https://redis.io" },
         { name: "SQLite", href: "https://www.sqlite.org" },
+        { name: "MongoDB", href: "https://www.mongodb.com" },
+        { name: "MySQL", href: "https://www.mysql.com" },
     ],
     Tools: [
         { name: "Neovim", href: "https://neovim.io" },
         { name: "Docker", href: "https://www.docker.com" },
         { name: "Git", href: "https://git-scm.com" },
-        { name: "Linux" },
+        { name: "Linux", href: "https://www.kernel.org" },
+        { name: "Azure DevOps", href: "https://azure.microsoft.com/en-us/services/devops/" },
     ],
     Cloud: [
-        { name: "AWS", href: "https://aws.amazon.com" },
-        { name: "Fly.io", href: "https://fly.io" },
-        { name: "Cloudflare", href: "https://www.cloudflare.com" },
+        { name: "Azure", href: "https://azure.microsoft.com" },
+        { name: "Google Cloud", href: "https://cloud.google.com" },
+        { name: "Vercel", href: "https://vercel.com" },
     ],
 };
 
@@ -107,7 +119,7 @@ const hobbies = [
     { name: "Neovim & Tooling", description: "Obsessing over configs and keybindings." },
     { name: "Micro SaaS", description: "Small products that solve real problems." },
     { name: "Performance Eng.", description: "Profiling and squeezing every bit of speed." },
-    { name: "Hobby Name", description: "Short description of the hobby." },
+    { name: "Biking", description: "Taking a great break in the fresh air" },
 ];
 
 export default function AboutPage() {
