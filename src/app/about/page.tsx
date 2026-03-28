@@ -161,10 +161,9 @@ export default function AboutPage() {
                 {/* ── Hero strip ─────────────────────────────────────────── */}
                 <div className="flex flex-col gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-6 py-4 md:flex-row md:items-center md:gap-6 dark:border-white/10 dark:bg-white/5">
                     <div className="flex items-center gap-4">
-                        <div className="size-14 shrink-0 rounded-full bg-gray-200 ring-2 ring-gray-300 dark:bg-white/15 dark:ring-white/20" />
                         <div>
                             <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-                                Your Name
+                                David Schlüter
                             </h1>
                             <p className="text-brand text-sm">
                                 Backend Developer &amp; Neovim Enthusiast

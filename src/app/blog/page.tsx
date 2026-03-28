@@ -16,7 +16,8 @@ export default function BlogPage() {
                             Writing
                         </h1>
                         <p className="text-sm text-gray-500 dark:text-white/50">
-                            Thoughts on backend, tooling, and the craft of building software
+                            Thoughts on backend, tooling, and the craft of
+                            building software
                         </p>
                     </div>
                     <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-500 dark:bg-white/10 dark:text-white/50">
@@ -50,7 +51,7 @@ export default function BlogPage() {
                                     {post.tags.slice(0, 2).map((tag) => (
                                         <span
                                             key={tag}
-                                            className="bg-black/50 rounded-full px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm"
+                                            className="rounded-full bg-black/50 px-2 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm"
                                         >
                                             {tag}
                                         </span>
@@ -64,11 +65,14 @@ export default function BlogPage() {
                                 <div className="flex items-center gap-3 text-xs text-gray-400 dark:text-white/40">
                                     <span className="flex items-center gap-1">
                                         <Calendar className="size-3" />
-                                        {new Date(post.date).toLocaleDateString("en-US", {
-                                            month: "short",
-                                            day: "numeric",
-                                            year: "numeric",
-                                        })}
+                                        {new Date(post.date).toLocaleDateString(
+                                            "en-US",
+                                            {
+                                                month: "short",
+                                                day: "numeric",
+                                                year: "numeric",
+                                            },
+                                        )}
                                     </span>
                                     <span className="flex items-center gap-1">
                                         <Clock className="size-3" />
@@ -76,7 +80,7 @@ export default function BlogPage() {
                                     </span>
                                 </div>
 
-                                <h2 className="group-hover:text-brand font-semibold leading-snug text-gray-900 transition-colors dark:text-white">
+                                <h2 className="group-hover:text-brand leading-snug font-semibold text-gray-900 transition-colors dark:text-white">
                                     {post.title}
                                 </h2>
 
