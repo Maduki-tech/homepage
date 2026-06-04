@@ -8,16 +8,7 @@ import { ContactSection } from "~/components/sections/contact";
 
 function Divider() {
   return (
-    <div
-      style={{
-        height: 1,
-        background: "linear-gradient(90deg, transparent, var(--border-col), transparent)",
-        maxWidth: 1140,
-        marginInline: "auto",
-        marginLeft: "clamp(20px,5vw,52px)",
-        marginRight: "clamp(20px,5vw,52px)",
-      }}
-    />
+    <div className="h-px bg-gradient-to-r from-transparent via-[var(--border-col)] to-transparent max-w-[1140px] mx-[clamp(20px,5vw,52px)]" />
   );
 }
 
@@ -33,83 +24,20 @@ export default function HomePage() {
       <WorkSection />
       <Divider />
       <ContactSection />
-      <footer
-        style={{
-          borderTop: "1px solid var(--border-col)",
-          paddingBlock: 34,
-          marginTop: 30,
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1140,
-            margin: "0 auto",
-            padding: "0 clamp(20px,5vw,52px)",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: 18,
-            flexWrap: "wrap",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontWeight: 700,
-              fontSize: "0.92rem",
-              color: "var(--text)",
-            }}
-          >
-            <span
-              style={{
-                display: "inline-grid",
-                placeItems: "center",
-                width: 28,
-                height: 28,
-                borderRadius: 7,
-                background: "var(--accent)",
-                color: "var(--accent-ink)",
-                fontSize: "0.8rem",
-                marginRight: "0.5em",
-              }}
-            >
+      <footer className="border-t border-[var(--border-col)] py-[34px] mt-[30px]">
+        <div className="max-w-[1140px] mx-auto px-[clamp(20px,5vw,52px)] flex justify-between items-center gap-[18px] flex-wrap">
+          <span className="font-mono font-bold text-[0.92rem] text-[var(--text)]">
+            <span className="inline-grid place-items-center w-[28px] h-[28px] rounded-[7px] bg-[var(--accent)] text-[var(--accent-ink)] text-[0.8rem] mr-[0.5em]">
               ~/
             </span>
             David Schlüter
           </span>
-          <span
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.78rem",
-              color: "var(--text-dim)",
-            }}
-          >
+          <span className="font-mono text-[0.78rem] text-[var(--text-dim)]">
             © {new Date().getFullYear()} — built in the terminal, shipped with care
           </span>
           <a
             href="#home"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.8rem",
-              color: "var(--text-muted)",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5em",
-              border: "1px solid var(--border-col)",
-              padding: "8px 14px",
-              borderRadius: 9,
-              transition: "color .2s, border-color .2s, background .2s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = "var(--accent)";
-              e.currentTarget.style.borderColor = "var(--accent-line)";
-              e.currentTarget.style.background = "var(--accent-soft)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "var(--text-muted)";
-              e.currentTarget.style.borderColor = "var(--border-col)";
-              e.currentTarget.style.background = "transparent";
-            }}
+            className="font-mono text-[0.8rem] text-[var(--text-muted)] inline-flex items-center gap-[0.5em] border border-[var(--border-col)] px-[14px] py-[8px] rounded-[9px] transition-[color,border-color,background] duration-200 hover:text-[var(--accent)] hover:border-[var(--accent-line)] hover:bg-[var(--accent-soft)]"
           >
             cd ~
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">

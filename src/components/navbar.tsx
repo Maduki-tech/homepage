@@ -17,37 +17,14 @@ function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  if (!mounted) return <div style={{ width: 38, height: 38 }} />;
+  if (!mounted) return <div className="w-[38px] h-[38px]" />;
 
   const isDark = theme === "dark";
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      style={{
-        width: 38,
-        height: 38,
-        borderRadius: 10,
-        border: "1px solid var(--border-col)",
-        background: "var(--bg-elev)",
-        color: "var(--text-muted)",
-        display: "grid",
-        placeItems: "center",
-        transition: "color .2s, border-color .2s, background .2s",
-        cursor: "pointer",
-      }}
-      onMouseEnter={(e) => {
-        const t = e.currentTarget;
-        t.style.color = "var(--text)";
-        t.style.borderColor = "var(--accent-line)";
-        t.style.background = "var(--accent-soft)";
-      }}
-      onMouseLeave={(e) => {
-        const t = e.currentTarget;
-        t.style.color = "var(--text-muted)";
-        t.style.borderColor = "var(--border-col)";
-        t.style.background = "var(--bg-elev)";
-      }}
+      className="w-[38px] h-[38px] rounded-[10px] border border-[var(--border-col)] bg-[var(--bg-elev)] text-[var(--text-muted)] grid place-items-center transition-[color,border-color,background] duration-200 cursor-pointer hover:text-[var(--text)] hover:border-[var(--accent-line)] hover:bg-[var(--accent-soft)]"
     >
       {isDark ? (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -103,122 +80,42 @@ export function Navbar() {
   return (
     <>
       <header
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          height: "var(--header-h)",
-          display: "flex",
-          alignItems: "center",
-          background: headerBg,
-          backdropFilter: "blur(14px) saturate(140%)",
-          WebkitBackdropFilter: "blur(14px) saturate(140%)",
-          borderBottom: `1px solid ${scrolled ? "var(--border-col)" : "transparent"}`,
-          transition: "border-color .3s ease, background .3s ease",
-        }}
+        className={`fixed top-0 left-0 right-0 z-[100] h-[var(--header-h)] flex items-center backdrop-blur-[14px] saturate-150 border-b transition-[border-color,background] duration-300 ${scrolled ? "border-[var(--border-col)]" : "border-transparent"}`}
+        style={{ background: headerBg }}
       >
-        <nav
-          style={{
-            maxWidth: 1140,
-            margin: "0 auto",
-            padding: "0 clamp(20px,5vw,52px)",
-            display: "flex",
-            alignItems: "center",
-            gap: 18,
-            width: "100%",
-          }}
-        >
+        <nav className="max-w-[1140px] mx-auto px-[clamp(20px,5vw,52px)] flex items-center gap-[18px] w-full">
           {/* Brand */}
           <Link
             href="/"
             aria-label="David Schlüter – home"
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontWeight: 700,
-              fontSize: "1.02rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.55em",
-              letterSpacing: "-0.01em",
-              color: "var(--text)",
-            }}
+            className="font-mono font-bold text-[1.02rem] flex items-center gap-[0.55em] tracking-[-0.01em] text-[var(--text)]"
           >
-            <span
-              style={{
-                width: 34,
-                height: 34,
-                borderRadius: 9,
-                display: "grid",
-                placeItems: "center",
-                background: "var(--accent)",
-                color: "var(--accent-ink)",
-                fontSize: "0.92rem",
-                boxShadow: "0 0 0 1px var(--accent-line), 0 6px 16px -6px var(--accent)",
-                flexShrink: 0,
-              }}
-            >
+            <span className="w-[34px] h-[34px] rounded-[9px] grid place-items-center bg-[var(--accent)] text-[var(--accent-ink)] text-[0.92rem] shadow-[0_0_0_1px_var(--accent-line),0_6px_16px_-6px_var(--accent)] shrink-0">
               ~/
             </span>
             <span>
               schlueter
-              <span className="cursor-blink" style={{ color: "var(--accent)" }}>_</span>
+              <span className="cursor-blink text-[var(--accent)]">_</span>
             </span>
           </Link>
 
           {/* Desktop links */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 2,
-              marginLeft: "auto",
-            }}
-            className="nav-links-desktop"
-          >
+          <div className="hidden md:flex items-center gap-[2px] ml-auto">
             {NAV_LINKS.map((link) => {
               const active = isHomePage && activeSection === link.section;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.85rem",
-                    color: active ? "var(--accent)" : "var(--text-muted)",
-                    padding: "8px 13px",
-                    borderRadius: 8,
-                    position: "relative",
-                    transition: "color .2s, background .2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!active) {
-                      e.currentTarget.style.color = "var(--text)";
-                      e.currentTarget.style.background = "var(--accent-soft)";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!active) {
-                      e.currentTarget.style.color = "var(--text-muted)";
-                      e.currentTarget.style.background = "transparent";
-                    }
-                  }}
+                  className={`font-mono text-[0.85rem] px-[13px] py-[8px] rounded-[8px] relative transition-[color,background] duration-200 ${
+                    active
+                      ? "text-[var(--accent)]"
+                      : "text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-[var(--accent-soft)]"
+                  }`}
                 >
                   {link.label}
                   {active && (
-                    <span
-                      style={{
-                        position: "absolute",
-                        left: 13,
-                        right: 13,
-                        bottom: 3,
-                        height: 2,
-                        background: "var(--accent)",
-                        borderRadius: 2,
-                        display: "block",
-                      }}
-                    />
+                    <span className="absolute left-[13px] right-[13px] bottom-[3px] h-[2px] bg-[var(--accent)] rounded-[2px] block" />
                   )}
                 </Link>
               );
@@ -226,25 +123,14 @@ export function Navbar() {
           </div>
 
           {/* Actions */}
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginLeft: 6 }}>
+          <div className="flex items-center gap-[8px] ml-[6px]">
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
-              className="menu-btn-mobile"
-              style={{
-                width: 38,
-                height: 38,
-                borderRadius: 10,
-                border: "1px solid var(--border-col)",
-                background: "var(--bg-elev)",
-                color: "var(--text)",
-                display: "none",
-                placeItems: "center",
-                cursor: "pointer",
-              }}
+              className="md:hidden w-[38px] h-[38px] rounded-[10px] border border-[var(--border-col)] bg-[var(--bg-elev)] text-[var(--text)] grid place-items-center cursor-pointer"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <path d="M4 7h16M4 12h16M4 17h16" />
@@ -258,19 +144,7 @@ export function Navbar() {
       <div
         ref={mobileRef}
         id="mobile-nav"
-        style={{
-          position: "fixed",
-          top: "var(--header-h)",
-          left: 0,
-          right: 0,
-          zIndex: 99,
-          background: "var(--bg-elev)",
-          borderBottom: "1px solid var(--border-col)",
-          padding: "14px clamp(20px,5vw,52px) 20px",
-          flexDirection: "column",
-          gap: 4,
-          display: mobileOpen ? "flex" : "none",
-        }}
+        className={`fixed top-[var(--header-h)] left-0 right-0 z-[99] bg-[var(--bg-elev)] border-b border-[var(--border-col)] px-[clamp(20px,5vw,52px)] pt-[14px] pb-[20px] flex-col gap-[4px] ${mobileOpen ? "flex" : "hidden"}`}
       >
         {NAV_LINKS.map((link) => {
           const active = isHomePage && activeSection === link.section;
@@ -279,27 +153,17 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "1rem",
-                color: active ? "var(--accent)" : "var(--text-muted)",
-                padding: "11px 8px",
-                borderRadius: 8,
-                background: active ? "var(--accent-soft)" : "transparent",
-              }}
+              className={`font-mono text-[1rem] px-[8px] py-[11px] rounded-[8px] ${
+                active
+                  ? "text-[var(--accent)] bg-[var(--accent-soft)]"
+                  : "text-[var(--text-muted)]"
+              }`}
             >
               {link.label}
             </Link>
           );
         })}
       </div>
-
-      <style>{`
-        @media (max-width: 760px) {
-          .nav-links-desktop { display: none !important; }
-          .menu-btn-mobile { display: grid !important; }
-        }
-      `}</style>
     </>
   );
 }
