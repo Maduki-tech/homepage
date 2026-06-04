@@ -85,19 +85,6 @@ const SHOOTING_STARS: [number, number, number, number, number][] = [
 export default function StarField() {
   return (
     <>
-      <style>{`
-                @keyframes twinkle {
-                    0%, 100% { opacity: 0.15; transform: scale(1); }
-                    50% { opacity: 0.9; transform: scale(1.4); }
-                }
-                @keyframes shoot {
-                    0%   { opacity: 0;   transform: translate(0, 0) rotate(215deg); }
-                    5%   { opacity: 1; }
-                    20%  { opacity: 0;   transform: translate(310px, 220px) rotate(215deg); }
-                    100% { opacity: 0;   transform: translate(310px, 220px) rotate(215deg); }
-                }
-            `}</style>
-
       {/* Twinkling stars – only visible in dark mode */}
       {STARS.map(([x, y, size, delay, duration], i) => (
         <div
