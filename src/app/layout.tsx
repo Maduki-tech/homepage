@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import { type Metadata } from "next";
 import { Space_Grotesk, Manrope, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "~/components/theme-provider";
 import { Navbar } from "~/components/navbar";
 import { ScrollReveal } from "~/components/scroll-reveal";
@@ -48,6 +49,7 @@ export default function RootLayout({
                     <ScrollReveal />
                     {children}
                 </ThemeProvider>
+                <Analytics />
             </body>
         </html>
     );
